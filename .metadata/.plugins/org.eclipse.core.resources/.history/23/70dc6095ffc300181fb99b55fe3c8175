@@ -1,0 +1,160 @@
+package infoManage;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class addContract extends JFrame implements ActionListener{
+	JLabel JL = new JLabel("添加合同信息");
+	JLabel JLSid = new JLabel("合同号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLLate = new JLabel("员工工名");
+	JTextField JTLate = new JTextField();
+	
+	JLabel JLAbsent = new JLabel("用工形式");
+	JTextField JTAbsent = new JTextField();
+	
+	JLabel JLAxtra = new JLabel("职位");
+	JTextField JTExtra = new JTextField();
+	
+	JLabel JLPlace = new JLabel("签约时间");
+	JTextField JTPlace = new JTextField();
+	
+	JLabel JLStart = new JLabel("合同期限");
+	JTextField JTStart = new JTextField();
+	
+	JButton JBAdd = new JButton("添加");
+	JButton JBClear = new JButton("清空");
+	
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+	public addContract() {
+		this.setTitle("添加员工信息");
+		this.setLayout(null);
+	
+		JL.setFont(new java.awt.Font("宋体", Font.PLAIN, 19));
+		JL.setBounds(100,30,200,40);
+		this.add(JL);
+		
+		JLSid.setBounds(100, 80, 100, 20);
+		this.add(JLSid);
+		JTSid.setBounds(200, 80, 80, 20);
+		this.add(JTSid);
+		
+		JLLate.setBounds(100, 120, 100, 20);
+		this.add(JLLate);
+		JTLate.setBounds(200, 120, 80, 20);
+		this.add(JTLate);
+		
+		JLAbsent.setBounds(100, 160, 100, 20);
+		this.add(JLAbsent);
+		JTAbsent.setBounds(200, 160, 80, 20);
+		this.add(JTAbsent);
+		
+		JLAxtra.setBounds(100, 200, 100, 20);
+		this.add(JLAxtra);
+		JTExtra.setBounds(200, 200, 80, 20);
+		this.add(JTExtra);
+		
+		JLPlace.setBounds(100, 240, 100, 20);
+		this.add(JLPlace);
+		JTPlace.setBounds(200, 240, 80, 20);
+		this.add(JTPlace);
+		
+		JLStart.setBounds(100, 280, 100, 20);
+		this.add(JLStart);
+		JTStart.setBounds(200, 280, 80, 20);
+		this.add(JTStart);
+	
+		
+		JBAdd.setBounds(100, 330, 50, 20);
+		this.add(JBAdd);
+		JBAdd.addActionListener(this);
+		
+		JBClear.setBounds(200, 330, 50, 20);
+		this.add(JBClear);
+		JBClear.addActionListener(this);
+		
+		this.setBounds(320, 220, 340, 450);
+		this.setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == JBClear) {
+			JTSid.setText("");
+			JTLate.setText(""); 
+			JTAbsent.setText("");
+			JTExtra.setText("");
+			JLPlace.setText("");
+			JLStart.setText("");
+		}
+		if(e.getSource() == JBAdd) {
+			// get the information
+			String sSid = JTSid.getText();
+			String sLate = JTLate.getText();
+			String sAbsent = JTAbsent.getText();
+			String sShenfen = JTExtra.getText();
+			String sPlace = JTPlace.getText();
+			String sStart = JTStart.getText();
+			
+			sql = "select * from contract_info where cid = "+sSid+"";
+			
+			try {
+				Class.forName(jd);
+				// connect to database object
+				connection = (Connection)DriverManager.getConnection(url, user, password);
+				System.out.println("Successfully connected to the database lesson_info");
+				// get the data
+				java.sql.Statement statement = connection.createStatement();
+				java.sql.ResultSet result_set = statement.executeQuery(sql);
+				
+				// 如果有结果，则给出提示，否则写入数据库
+				if (result_set.next()) 
+					JOptionPane.showMessageDialog(null, "此合同已存在，请重新输入！");
+				else {
+					sql = "insert into lesson_info values"
+							+ "('"+sSid+"', '"+sLate+"', '"+sAbsent+"', '"+sShenfen+"', '"+sPlace+"', "+sStart+")";
+					// 执行sql语句，并获得返回值
+					int sqlResult = statement.executeUpdate(sql);
+					if (sqlResult > 0) {
+						JOptionPane.showMessageDialog(null, "添加成功！");
+						JTSid.setText("");
+						JTLate.setText(""); 
+						JTAbsent.setText("");
+						JTExtra.setText("");
+						JLPlace.setText("");
+						JLStart.setText("");
+						
+					}
+					else 
+						JOptionPane.showMessageDialog(null, "添加失败...");
+				}
+						
+			} catch (Exception exception) {
+				exception.printStackTrace();
+			}
+		}
+		
+	
+		
+	}
+
+}

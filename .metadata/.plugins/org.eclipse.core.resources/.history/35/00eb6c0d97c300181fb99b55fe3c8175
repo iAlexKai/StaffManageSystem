@@ -1,0 +1,16 @@
+package helloMySQL;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class AddStaff {
+
+	public void add(Staff staff) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		
+	}
+}

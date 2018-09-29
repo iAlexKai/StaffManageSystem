@@ -1,0 +1,121 @@
+package infoManage;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class addStaff extends JFrame implements ActionListener{
+
+	JLabel JL = new JLabel("添加员工基本信息");
+	
+	JLabel JLName = new JLabel("姓名");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLAge = new JLabel("年龄");
+	JTextField JTAge = new JTextField();
+	
+	JLabel JLShenfen = new JLabel("身份证");
+	JTextField JTShenfen = new JTextField();
+	
+	JLabel JLPhone = new JLabel("手机");
+	JTextField JTPhone = new JTextField();
+	
+	JLabel JLDepart = new JLabel("部门");
+	JTextField JTDepart = new JTextField();
+	
+	JLabel JLJob = new JLabel("职务");
+	JTextField JTJob = new JTextField();
+	
+	JLabel JLEntry = new JLabel("入职时间");
+	JTextField JTEntry = new JTextField();
+	
+	JLabel JLSpecial = new JLabel("特长");
+	JTextField JTSpecial = new JTextField();
+	
+	JLabel JLBasic = new JLabel("基础薪资");
+	JTextField JTBasic = new JTextField();
+	
+	JButton JBAdd = new JButton("添加");
+	JButton JBClear = new JButton("清空");
+	
+	public addStaff() {
+		this.setTitle("添加员工信息");
+		this.setLayout(null);
+	
+		JL.setFont(new java.awt.Font("宋体", Font.PLAIN, 19));
+		JL.setBounds(100,30,200,40);
+		this.add(JL);
+		
+		JLName.setBounds(100, 80, 100, 20);
+		this.add(JLName);
+		JTName.setBounds(200, 80, 80, 20);
+		this.add(JTName);
+		
+		JLAge.setBounds(100, 120, 100, 20);
+		this.add(JLAge);
+		JTAge.setBounds(200, 120, 80, 20);
+		this.add(JTAge);
+		
+		JLShenfen.setBounds(100, 160, 100, 20);
+		this.add(JLShenfen);
+		JTShenfen.setBounds(200, 160, 80, 20);
+		this.add(JTShenfen);
+		
+		JLPhone.setBounds(100, 200, 100, 20);
+		this.add(JLPhone);
+		JTPhone.setBounds(200, 200, 80, 20);
+		this.add(JTPhone);
+		
+		JLDepart.setBounds(100, 240, 100, 20);
+		this.add(JLDepart);
+		JTDepart.setBounds(200, 240, 80, 20);
+		this.add(JTDepart);
+		
+		JLJob.setBounds(100, 280, 100, 20);
+		this.add(JLJob);
+		JTJob.setBounds(200, 280, 80, 20);
+		this.add(JTJob);
+		
+		JLEntry.setBounds(100, 320, 100, 20);
+		this.add(JLEntry);
+		JTEntry.setBounds(200, 320, 80, 20);
+		this.add(JTEntry);
+		
+		JLSpecial.setBounds(100, 360, 100, 20);
+		this.add(JLSpecial);
+		JTSpecial.setBounds(200, 360, 80, 20);
+		this.add(JTSpecial);
+		
+		JLBasic.setBounds(100, 400, 100, 20);
+		this.add(JLBasic);
+		JTBasic.setBounds(200, 400, 80, 20);
+		this.add(JTBasic);
+		
+		JBAdd.setBounds(100, 450, 50, 20);
+		this.add(JBAdd);
+		JBAdd.addActionListener(this);
+		
+		JBClear.setBounds(200, 450, 50, 20);
+		this.add(JBClear);
+		JBClear.addActionListener(this);
+		
+		
+		this.setBounds(320, 220, 440, 550);
+		this.setVisible(true);
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,55 @@
+package infoManage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class modifyLesson extends JFrame implements ActionListener{
+	JLabel JL = new JLabel("修改培训信息");
+	JLabel JLSid = new JLabel("课程号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLLate = new JLabel("课程名");
+	JTextField JTLate = new JTextField();
+	
+	JLabel JLAbsent = new JLabel("培训单位");
+	JTextField JTAbsent = new JTextField();
+	
+	JLabel JLAxtra = new JLabel("报名人数");
+	JTextField JTExtra = new JTextField();
+	
+	JLabel JLPlace = new JLabel("培训地点");
+	JTextField JTPlace = new JTextField();
+	
+	JLabel JLStart = new JLabel("开始时间");
+	JTextField JTStart = new JTextField();
+	
+	JLabel JLEnd = new JLabel("结束时间");
+	JTextField JTEnd = new JTextField();
+	
+	JButton JBAdd = new JButton("确认");
+	JButton JBClear = new JButton("清空");
+	
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/train_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

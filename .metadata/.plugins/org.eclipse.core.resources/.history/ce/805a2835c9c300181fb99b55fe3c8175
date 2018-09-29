@@ -1,0 +1,32 @@
+package infoManage;
+
+public class Attendance {
+	private int sid;
+	private int lateCount;
+	private int absentCount;
+	private int extraCount;
+	public int getSid() {
+		return sid;
+	}
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	public int getLateCount() {
+		return lateCount;
+	}
+	public void setLateCount(int lateCount) {
+		this.lateCount = lateCount;
+	}
+	public int getAbsentCount() {
+		return absentCount;
+	}
+	public void setAbsentCount(int absentCount) {
+		this.absentCount = absentCount;
+	}
+	public int getExtraCount() {
+		return extraCount;
+	}
+	public void setExtraCount(int extraCount) {
+		this.extraCount = extraCount;
+	}
+}

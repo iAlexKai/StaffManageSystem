@@ -1,0 +1,7 @@
+package infoManage;
+
+import JFrame;
+
+public class Basic_info extends JFrame {
+
+}

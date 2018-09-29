@@ -1,0 +1,8 @@
+package infoManage;
+
+public class Attendance {
+	private int sid;
+	private int lateCount;
+	private int absentCount;
+	private int extraCount;
+}

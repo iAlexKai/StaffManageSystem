@@ -1,0 +1,46 @@
+package infoManage;
+
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class modifyAttendance extends JFrame implements ActionListener{
+JLabel JL = new JLabel("修改员工基本信息");
+	
+	JLabel JLSid = new JLabel("工号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLName = new JLabel("迟到次数");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLAge = new JLabel("旷工次数");
+	JTextField JTAge = new JTextField();
+	
+	JLabel JLShenfen = new JLabel("加班次数");
+	JTextField JTShenfen = new JTextField();
+	
+	JButton JBAdd = new JButton("确认");
+	JButton JBClear = new JButton("清空");
+	
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+	
+	public modifyAttendance() {
+		
+	}
+	
+
+}

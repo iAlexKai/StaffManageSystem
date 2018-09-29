@@ -1,0 +1,9 @@
+package infoManage;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+public class addAttendance extends JFrame implements ActionListener{
+
+}

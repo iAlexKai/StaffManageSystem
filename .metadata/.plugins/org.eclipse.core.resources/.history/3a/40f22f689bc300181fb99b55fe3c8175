@@ -1,0 +1,24 @@
+package infoManage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class deleteStaff extends JFrame implements ActionListener{
+
+	JLabel JL = new JLabel("删除员工信息");
+	
+	JLabel JLSid = new JLabel("员工工号");
+	JTextField JTSid = new JTextField();
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

@@ -1,0 +1,7 @@
+package infoManage;
+
+import Frame;
+
+public class Login extends Frame {
+
+}

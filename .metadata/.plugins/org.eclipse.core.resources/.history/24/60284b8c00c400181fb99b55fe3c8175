@@ -1,0 +1,53 @@
+package infoManage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class modifyContract extends JFrame implements ActionListener{
+	JLabel JL = new JLabel("修改合同信息");
+	JLabel JLSid = new JLabel("合同号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLLate = new JLabel("员工工号");
+	JTextField JTLate = new JTextField();
+	
+	JLabel JLAbsent = new JLabel("用工形式");
+	JTextField JTAbsent = new JTextField();
+	
+	JLabel JLAxtra = new JLabel("职位");
+	JTextField JTExtra = new JTextField();
+	
+	JLabel JLPlace = new JLabel("签约时间");
+	JTextField JTPlace = new JTextField();
+	
+	JLabel JLStart = new JLabel("合同期限");
+	JTextField JTStart = new JTextField();
+	
+	JButton JBAdd = new JButton("确认");
+	JButton JBClear = new JButton("清空");
+	
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

@@ -1,0 +1,49 @@
+package infoManage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class addLesson extends JFrame implements ActionListener{
+	JLabel JL = new JLabel("添加员工培训课程信息");
+	JLabel JLSid = new JLabel("课程号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLLate = new JLabel("课程名");
+	JTextField JTLate = new JTextField();
+	
+	JLabel JLAbsent = new JLabel("培训单位");
+	JTextField JTAbsent = new JTextField();
+	
+	JLabel JLAxtra = new JLabel("报名人数");
+	JTextField JTExtra = new JTextField();
+	
+	JLabel JLPlace = new JLabel("培训地点");
+	JTextField JTPlace = new JTextField();
+	
+	JButton JBAdd = new JButton("添加");
+	JButton JBClear = new JButton("清空");
+	
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

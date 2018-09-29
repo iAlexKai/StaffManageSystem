@@ -1,0 +1,107 @@
+package infoManage;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+
+class Staff_info_manage extends JFrame implements ActionListener{
+	/*
+	 * public static void main(String[] args) {
+		new Staff_info_manage();
+		}
+	 */
+	JMenuBar menuBar = new JMenuBar();
+	JMenu basic_info = new JMenu("员工名册");
+	JMenu attendance_info = new JMenu("考勤信息");
+	JMenu salary_info = new JMenu("薪资信息");
+	JMenu lesson_info = new JMenu("培训记录");
+	JMenu contract_info = new JMenu("合同记录");
+	JMenu real_estate_info = new JMenu("房地产资讯");
+	
+	Container container = new Container(); // 使用一个容器存放所有组件
+	JLabel welcomeLabel = new JLabel("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)", JLabel.CENTER);
+	JPanel cardPanel = new JPanel();
+	public Staff_info_manage() {
+		this.setTitle("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)");
+		this.setLayout(new CardLayout());
+		container = getContentPane();
+		cardPanel.setLayout(new CardLayout()); // 卡片式布局
+		
+		welcomeLabel.setFont(new Font("TimesRoman", Font.BOLD, 24));
+		welcomeLabel.setForeground(Color.red);
+		
+		this.setJMenuBar(menuBar);
+		menuBar.add(basic_info);
+		menuBar.add(attendance_info);
+		menuBar.add(salary_info);
+		menuBar.add(lesson_info);
+		menuBar.add(contract_info);
+		menuBar.add(real_estate_info);
+		
+		basic_info.addActionListener(this);
+		attendance_info.addActionListener(this);
+		salary_info.addActionListener(this);
+		lesson_info.addActionListener(this);
+		contract_info.addActionListener(this);
+		real_estate_info.addActionListener(this);
+		
+		container.add(cardPanel, BorderLayout.CENTER); // 面板添加卡片
+		container.validate(); // 将一个面板添加到另一个面板里面，需要使用validate函数
+		
+		this.setBounds(300, 200, 500, 400);
+		this.setVisible(true);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+		
+	} // end of the construction function
+	
+	
+	public void actionPerformed(ActionEvent e) { // 监听事件处理
+		if(e.getSource() == basic_info) {
+			// new Basic_info();
+			
+		}
+		
+		if(e.getSource() == attendance_info) {
+			// new Attendance_info();
+			
+		}
+		
+		if(e.getSource() == salary_info) {
+			// new Salary_info();
+			
+		}
+		
+		if(e.getSource() == lesson_info) {
+			// new Lesson_info();
+			
+		}
+		
+		if(e.getSource() == contract_info) {
+			// new Contract_info();
+			
+		}
+		
+		if(e.getSource() == real_estate_info) {
+			// new Real_estate_info();
+			
+		}
+	}
+
+}

@@ -1,0 +1,25 @@
+package infoManage;
+
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class modifyAttendance extends JFrame implements ActionListener{
+JLabel JL = new JLabel("修改员工基本信息");
+	
+	JLabel JLSid = new JLabel("工号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLName = new JLabel("姓名");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLAge = new JLabel("年龄");
+	JTextField JTAge = new JTextField();
+	
+	JLabel JLShenfen = new JLabel("身份证");
+	JTextField JTShenfen = new JTextField();
+	
+
+}

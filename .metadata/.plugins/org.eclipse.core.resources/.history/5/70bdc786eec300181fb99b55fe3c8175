@@ -1,0 +1,66 @@
+package infoManage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class modifySalary extends JFrame implements ActionListener{
+	JLabel JL = new JLabel("修改工资信息");
+	
+	JLabel JLSid = new JLabel("工号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLName = new JLabel("基本工资");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLAge = new JLabel("月份");
+	JTextField JTAge = new JTextField();
+	
+	JLabel JLShenfen = new JLabel("绩效");
+	JTextField JTShenfen = new JTextField();
+	
+	JLabel JLPhone = new JLabel("罚款");
+	JTextField JTPhone = new JTextField();
+	
+	JLabel JLDepart = new JLabel("奖金");
+	JTextField JTDepart = new JTextField();
+	
+	JLabel JLJob = new JLabel("个调税");
+	JTextField JTJob = new JTextField();
+	
+	JLabel JLEntry = new JLabel("业务量");
+	JTextField JTEntry = new JTextField();
+	
+	JLabel JLSpecial = new JLabel("特长");
+	JTextField JTSpecial = new JTextField();
+	
+	JLabel JLBasic = new JLabel("基础薪资");
+	JTextField JTBasic = new JTextField();
+	
+	JButton JBAdd = new JButton("确认");
+	JButton JBClear = new JButton("清空");
+	
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

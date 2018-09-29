@@ -1,0 +1,51 @@
+package infoManage;
+
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+
+class staff_info_manage extends JFrame implements ActionListener{
+	public static void main(String[] args) {
+		new staff_info_manage();
+	}
+
+	JMenuBar basic_info_bar = new JMenuBar();
+	JMenu basic_info = new JMenu("员工名册");
+	JMenuBar attendance_info_bar = new JMenuBar();
+	JMenu attendance_info = new JMenu("考勤信息");
+	JMenuBar salary_info_bar = new JMenuBar();
+	JMenu salary_info = new JMenu("薪资信息");
+	JMenuBar lesson_info_bar = new JMenuBar();
+	JMenu lesson_info = new JMenu("培训记录");
+	JMenuBar contract_info_bar = new JMenuBar();
+	JMenu contract_info = new JMenu("合同记录");
+	JMenuBar real_estate_info_bar = new JMenuBar();
+	JMenu real_estate_info = new JMenu("房地产资讯");
+	
+	Container container = new Container(); // 使用一个容器存放所有组件
+	JLabel welcomeLabel = new JLabel("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)", JLabel.CENTER);
+	JPanel cardPanel = new JPanel();
+	public staff_info_manage() {
+		this.setTitle("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)");
+		this.setLayout(new CardLayout());
+		container = getContentPane();
+		cardPanel.setLayout(new CardLayout()); // 卡片式布局，
+	}
+	
+	
+	
+	
+	public void actionPerformed(ActionEvent e) { // 监听事件处理
+		// TODO Auto-generated method stub
+		
+	}
+
+}

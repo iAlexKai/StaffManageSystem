@@ -1,0 +1,64 @@
+package infoManage;
+
+import java.awt.BorderLayout;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class Salary_info extends JFrame implements ActionListener {
+
+	JButton JBAdd = new JButton("新增");
+	JButton JBDelete = new JButton("删除");
+	JLabel JLid = new JLabel("工号： ");  // 变量命名中L表示Label
+	JLabel JLdepartment = new JLabel("部门： ");
+	JTextField JTid = new JTextField(10);  // 变量命名中T表示Text
+	JTextField JTdepartment = new JTextField(10);
+	JButton JBSearch = new JButton("查询");  
+	//JButton JBDepart = new JButton("查询部门");
+	
+	JPanel subPanel = null;
+	public Salary_info() {
+		subPanel = new JPanel();
+		//subPanel.setLayout(new FlowLayout());
+		//subPanel.setBounds(0, 50, 180, 100);
+		
+		JBAdd.setBounds(20, 60, 60, 20);
+		JBDelete.setBounds(80, 60, 60, 20);
+		
+		JLid.setBounds(10, 100, 50, 20);
+		//JTid.setSize(120, 20);
+		JLdepartment.setBounds(10, 130, 50, 20);
+		//JTdepartment.setSize(120, 20);
+		
+		subPanel.add(JBAdd);
+		subPanel.add(JBDelete);
+		subPanel.add(JLid);
+		subPanel.add(JTid);
+		subPanel.add(JLdepartment);
+		subPanel.add(JTdepartment);
+		subPanel.add(JBSearch);
+		this.setLayout(new BorderLayout());
+		this.add(subPanel, BorderLayout.SOUTH);
+		JBAdd.addActionListener(this);
+		JBDelete.addActionListener(this);
+		JBSearch.addActionListener(this);
+		
+	
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

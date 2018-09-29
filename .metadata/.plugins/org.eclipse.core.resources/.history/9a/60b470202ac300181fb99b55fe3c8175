@@ -1,0 +1,157 @@
+package infoManage;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+
+
+// JMenu 不能绑定事件，只有JMenu下面的JButton才可以绑定事件, 本工程舍弃使用menu，直接使用并列的几个按钮
+
+class MainPage extends JFrame implements ActionListener{
+	
+	public static void main(String[] args) {
+		new MainPage();
+	}
+	 
+	
+	JPanel topPanel = new JPanel();
+	JButton basic_info = new JButton("员工名册");
+	JButton attendance_info = new JButton("考勤信息");
+	JButton salary_info = new JButton("薪资信息");
+	JButton lesson_info = new JButton("培训记录");
+	JButton contract_info = new JButton("合同记录");
+	JButton real_estate_info = new JButton("房地产资讯");
+
+	
+	//Container container = new Container(); // 使用一个容器存放所有组件
+	JLabel welcomeLabel = new JLabel("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)", JLabel.CENTER);
+	JPanel cardPanel = null;
+	
+	CardLayout card = null;
+	// 6个面板
+	JPanel basic_info_panel = null, attendance_info_panel = null, salary_info_panel = null, 
+			lesson_info_panel = null, contract_info_panel = null, real_estate_info_panel = null;
+	
+	public MainPage() {
+		this.setTitle("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)");
+		card = new CardLayout();
+		cardPanel = new JPanel(card);
+		//this.setLayout(card); 
+		
+		//container = getContentPane();
+		//cardPanel.setLayout(new CardLayout()); // 卡片式布局
+		
+		welcomeLabel.setFont(new Font("TimesRoman", Font.BOLD, 24));
+		welcomeLabel.setForeground(Color.red);
+		
+		
+		basic_info.setBounds(0, 0, 60, 20);
+		attendance_info.setBounds(80, 0, 60, 20);
+		salary_info.setBounds(160, 0, 60, 20);
+		lesson_info.setBounds(240, 0, 60, 20);
+		contract_info.setBounds(320, 0, 60, 20);
+		real_estate_info.setBounds(400, 0, 60, 20);
+		
+		topPanel.add(basic_info);
+		topPanel.add(attendance_info);
+		topPanel.add(salary_info);
+		topPanel.add(lesson_info);
+		topPanel.add(contract_info);
+		topPanel.add(real_estate_info);
+		
+		basic_info.addActionListener(this);
+		attendance_info.addActionListener(this);
+		salary_info.addActionListener(this);
+		lesson_info.addActionListener(this);
+		contract_info.addActionListener(this);
+		real_estate_info.addActionListener(this);  
+	
+		
+		// 开启6个面板
+		basic_info_panel = new JPanel();
+		attendance_info_panel = new JPanel();
+		salary_info_panel = new JPanel(); 
+		lesson_info_panel = new JPanel();
+		contract_info_panel = new JPanel();
+		real_estate_info_panel = new JPanel();
+		
+		// for test
+		/*
+		attendance_info_panel.add(new JLabel("考勤信息"));
+		basic_info_panel.add(new JLabel("员工名册"));
+		salary_info_panel.add(new JLabel("薪资信息"));
+		lesson_info_panel.add(new JLabel("培训记录"));
+		contract_info_panel.add(new JLabel("合同记录"));
+		real_estate_info_panel.add(new JLabel("房地产资讯"));	
+		*/
+		
+		cardPanel.add(basic_info_panel, "p1");
+		cardPanel.add(attendance_info_panel, "p2");
+		cardPanel.add(salary_info_panel, "p3");
+		cardPanel.add(lesson_info_panel, "p4");
+		cardPanel.add(contract_info_panel, "p5");
+		cardPanel.add(real_estate_info_panel, "p6");
+		
+		
+		this.getContentPane().add(topPanel, BorderLayout.NORTH);
+		this.getContentPane().add(cardPanel);
+		this.setBounds(300, 200, 800, 600);
+		this.setVisible(true);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+		
+	} // end of the construction function
+	
+	
+	public void actionPerformed(ActionEvent e) { // 监听事件处理
+		if(e.getSource() == basic_info) { // 点击后切换到basic_info卡片
+			// new Basic_info();
+			card.show(cardPanel, "p1");
+			
+		}
+		
+		if(e.getSource() == attendance_info) {
+			// new Attendance_info();
+			card.show(cardPanel, "p2");
+		}
+		
+		if(e.getSource() == salary_info) {
+			// new Salary_info();
+			card.show(cardPanel, "p3");
+		}
+		
+		if(e.getSource() == lesson_info) {
+			// new Lesson_info();
+			card.show(cardPanel, "p4");
+		}
+		
+		if(e.getSource() == contract_info) {
+			// new Contract_info();
+			card.show(cardPanel, "p5");
+		}
+		
+		if(e.getSource() == real_estate_info) {
+			// new Real_estate_info();
+			card.show(cardPanel, "p6");
+		}
+		
+		
+	}
+
+}

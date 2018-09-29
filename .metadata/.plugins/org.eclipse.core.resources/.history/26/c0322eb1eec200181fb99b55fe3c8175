@@ -1,0 +1,47 @@
+package helloMySQL;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
+// 注意，第一次使用mysql没有创建任何数据库的时候，有一个默认的数据库 mysql可用作测试，url should refer to mysql
+
+public class helloMySQL {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		// driver engine
+		String jd = "com.mysql.cj.jdbc.Driver";
+		// connect to MySQL
+		//String url = "jdbc:mysql://localhost:3306/Login?useSSL=false";
+		String url = "jdbc:mysql://127.0.0.1:3306/mysql?useSSL=false";
+		// user-name
+		String user = "root";
+		// pass-word
+		String password = "wsad1234";
+		try {
+			// load the driver 
+			Class.forName(jd); 
+			// connect to database object
+			connection = (Connection)DriverManager.getConnection(url, user, password);
+			System.out.println("Successfully connected to the engine");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+            System.out.println("engine fails");
+            e.printStackTrace();
+		}
+		if (connection != null) {
+			try {
+				// shutdown the recource
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}
+

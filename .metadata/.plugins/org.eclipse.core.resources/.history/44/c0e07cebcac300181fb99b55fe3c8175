@@ -1,0 +1,31 @@
+package infoManage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class addAttendance extends JFrame implements ActionListener{
+	JLabel JL = new JLabel("添加员工考勤信息");
+	
+	JLabel JLSid = new JLabel("工号");
+	JTextField JTSid = new JTextField();
+	
+	JLabel JLName = new JLabel("迟到次数");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLAge = new JLabel("旷工次数");
+	JTextField JTAge = new JTextField();
+	
+	JLabel JLShenfen = new JLabel("加班次数");
+	JTextField JTShenfen = new JTextField();
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,134 @@
+package infoManage;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import infoManage.PutinStorage;
+
+// Basic_info 即员工基本信息， 包括增删改查，导出两个图片
+public class Basic_info extends MainPage{
+	
+	public static void main (String args[]) {
+		new Basic_info();
+	}
+	JButton JBAdd = new JButton("新增");
+	JButton JBDelete = new JButton("删除");
+	JLabel JLid = new JLabel("工号： ");  // 变量命名中L表示Label
+	JLabel JLdepartment = new JLabel("部门： ");
+	JTextField JTid = new JTextField(10);  // 变量命名中T表示Text
+	JTextField JTdepartment = new JTextField(10);
+	JButton JBSearch = new JButton("查询");  
+	//JButton JBDepart = new JButton("查询部门");
+	
+	JPanel subPanel = null;
+	
+	// 默认表格和主体表格
+	DefaultTableModel tableModel = null;
+	JTable table = null;
+	JPanel tablePanel = null;
+	
+	public Basic_info() {
+		subPanel = new JPanel();
+		//subPanel.setLayout(new FlowLayout());
+		//subPanel.setBounds(0, 50, 180, 100);
+		
+		JBAdd.setBounds(20, 60, 60, 20);
+		JBDelete.setBounds(80, 60, 60, 20);
+		
+		JLid.setBounds(10, 100, 50, 20);
+		//JTid.setSize(120, 20);
+		JLdepartment.setBounds(10, 130, 50, 20);
+		//JTdepartment.setSize(120, 20);
+		
+		subPanel.add(JBAdd);
+		subPanel.add(JBDelete);
+		subPanel.add(JLid);
+		subPanel.add(JTid);
+		subPanel.add(JLdepartment);
+		subPanel.add(JTdepartment);
+		subPanel.add(JBSearch);
+		this.setLayout(new BorderLayout());;
+		this.add(subPanel, BorderLayout.SOUTH);
+		JBAdd.addActionListener(this);
+		JBDelete.addActionListener(this);
+		JBSearch.addActionListener(this);
+		
+		// 获得表格各行数据
+		Vector rowData = PutinStorage.getRows("staff_info", "basic_info");
+		// 获得表格表头数据
+		Vector columnName = PutinStorage.getHead("staff_info", "basic_info");
+		// 新建表格
+		tableModel = new DefaultTableModel(rowData, columnName);	
+		table = new JTable(tableModel);
+		JScrollPane scroll = new JScrollPane(table);
+		table.setRowHeight(18);// 设置表格行宽
+		tablePanel = new JPanel();
+		tablePanel.add(scroll);
+		this.add(tablePanel);
+	
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == JBAdd) {
+			new addStaff();
+		}
+		
+		if(e.getSource() == JBDelete) {
+			new deleteStaff();
+		}
+		
+		// 根据输入的查询条件，显示搜索结果展示表格在界面主题
+		if(e.getSource() == JBSearch) {
+			
+		}
+		
+		if(e.getSource() == basic_info) { // 点击后切换到basic_info卡片
+			this.setVisible(false);
+			new Basic_info();
+		}
+		
+		if(e.getSource() == attendance_info) {
+			this.setVisible(false);
+			new Attendance_info();
+		}
+		
+		if(e.getSource() == salary_info) {
+			this.setVisible(false);
+			new Salary_info();
+		}
+		
+		if(e.getSource() == lesson_info) {
+			this.setVisible(false);
+			new Lesson_info();
+		}
+		
+		if(e.getSource() == contract_info) {
+			this.setVisible(false);
+			new Contract_info();
+		}
+		
+		if(e.getSource() == real_estate_info) {
+			this.setVisible(false);
+			new Real_estate_info();
+		}	
+		
+	}
+
+}

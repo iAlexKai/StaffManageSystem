@@ -1,0 +1,39 @@
+package infoManage;
+
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class Basic_info extends MainPage{
+	
+	JButton JBAdd = new JButton("新增");
+	JButton JBDelete = new JButton("删除");
+	JPanel subPanel = null;
+	public Basic_info() {
+		JBAdd.setBounds(300, 300, 60, 20);
+		JBDelete.setBounds(400, 300, 60, 20);
+		this.add(JBAdd);
+		this.add(JBDelete);
+		JBAdd.addActionListener(this);
+		JBDelete.addActionListener(this);
+		
+		this.setBounds(300, 250, 800, 550);
+		this.setVisible(true);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

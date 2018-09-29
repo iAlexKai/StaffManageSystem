@@ -1,0 +1,162 @@
+package infoManage;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+
+class MainPage extends JFrame implements ActionListener{
+	
+	public static void main(String[] args) {
+		new MainPage();
+	}
+	 
+	JMenuBar menuBar = new JMenuBar();
+	JMenu basic_info = new JMenu("员工名册");
+	JMenu attendance_info = new JMenu("考勤信息");
+	JMenu salary_info = new JMenu("薪资信息");
+	JMenu lesson_info = new JMenu("培训记录");
+	JMenu contract_info = new JMenu("合同记录");
+	JMenu real_estate_info = new JMenu("房地产资讯");
+	
+	//Container container = new Container(); // 使用一个容器存放所有组件
+	JLabel welcomeLabel = new JLabel("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)", JLabel.CENTER);
+	JPanel cardPanel = null;
+	
+	CardLayout card = null;
+	// 6个面板
+	JPanel basic_info_panel = null, attendance_info_panel = null, salary_info_panel = null, 
+			lesson_info_panel = null, contract_info_panel = null, real_estate_info_panel = null;
+	
+	public MainPage() {
+		this.setTitle("欢迎登录企业员工管理系统，当前用户：王露驿(管理员)");
+		card = new CardLayout(500, 400);
+		cardPanel = new JPanel(card);
+		//this.setLayout(card); 
+		
+		//container = getContentPane();
+		//cardPanel.setLayout(new CardLayout()); // 卡片式布局
+		
+		welcomeLabel.setFont(new Font("TimesRoman", Font.BOLD, 24));
+		welcomeLabel.setForeground(Color.red);
+		
+		// 上方菜单栏和按钮
+		this.setJMenuBar(menuBar);
+		menuBar.add(basic_info);
+		menuBar.add(attendance_info);
+		menuBar.add(salary_info);
+		menuBar.add(lesson_info);
+		menuBar.add(contract_info);
+		menuBar.add(real_estate_info);
+		
+		basic_info.addActionListener(this);
+		attendance_info.addActionListener(this);
+		salary_info.addActionListener(this);
+		lesson_info.addActionListener(this);
+		contract_info.addActionListener(this);
+		real_estate_info.addActionListener(this);  
+		
+		/*container.add(cardPanel, BorderLayout.CENTER); // 面板添加卡片
+		  container.validate(); // 将一个面板添加到另一个面板里面，需要使用validate函数
+		*/
+		
+		// 开启6个面板
+		basic_info_panel = new JPanel();
+		attendance_info_panel = new JPanel();
+		salary_info_panel = new JPanel(); 
+		lesson_info_panel = new JPanel();
+		contract_info_panel = new JPanel();
+		real_estate_info_panel = new JPanel();
+		
+		// for test
+		/*basic_info_panel.add(new JLabel("员工名册"));
+		attendance_info_panel.add(new JLabel("考勤信息"));
+		salary_info_panel.add(new JLabel("薪资信息"));
+		lesson_info_panel.add(new JLabel("培训记录"));
+		contract_info_panel.add(new JLabel("合同记录"));
+		real_estate_info_panel.add(new JLabel("房地产资讯"));
+		*/
+		basic_info_panel.setBackground(Color.RED);
+		attendance_info_panel.setBackground(Color.BLUE);
+		
+		cardPanel.add(basic_info_panel, "p1");
+		cardPanel.add(attendance_info_panel, "p2");
+		cardPanel.add(salary_info_panel, "p3");
+		cardPanel.add(lesson_info_panel, "p4");
+		cardPanel.add(contract_info_panel, "p5");
+		cardPanel.add(real_estate_info_panel, "p6");
+		
+		basic_info.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(cardPanel, "p1");
+			}
+		});
+		
+		attendance_info.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(cardPanel, "p2");
+			}
+		});
+		
+		
+		this.getContentPane().add(cardPanel);
+		this.setBounds(300, 200, 500, 400);
+		this.setVisible(true);
+		
+		
+		
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+		
+	} // end of the construction function
+	
+	
+	public void actionPerformed(ActionEvent e) { // 监听事件处理
+		if(e.getSource() == basic_info) { // 点击后切换到basic_info卡片
+			// new Basic_info();
+			card.show(cardPanel, "p1");
+			
+		}
+		
+		if(e.getSource() == attendance_info) {
+			// new Attendance_info();
+			card.show(cardPanel, "p2");
+		}
+		
+		if(e.getSource() == salary_info) {
+			// new Salary_info();
+			card.show(cardPanel, "p3");
+		}
+		
+		if(e.getSource() == lesson_info) {
+			// new Lesson_info();
+			card.show(cardPanel, "p4");
+		}
+		
+		if(e.getSource() == contract_info) {
+			// new Contract_info();
+			card.show(cardPanel, "p5");
+		}
+		
+		if(e.getSource() == real_estate_info) {
+			// new Real_estate_info();
+			card.show(cardPanel, "p6");
+		}
+	}
+
+}

@@ -1,0 +1,51 @@
+package infoManage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class addStaff extends JFrame implements ActionListener{
+
+	JLabel JL = new JLabel("添加员工基本信息");
+	
+	JLabel JLName = new JLabel("姓名");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLBirthday = new JLabel("生日");
+	JTextField JTBirthday = new JTextField();
+	
+	JLabel JLName = new JLabel("姓名");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLBirthday = new JLabel("生日");
+	JTextField JTBirthday = new JTextField();
+	
+	JLabel JLName = new JLabel("姓名");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLBirthday = new JLabel("生日");
+	JTextField JTBirthday = new JTextField();
+	
+	JLabel JLName = new JLabel("姓名");
+	JTextField JTName = new JTextField();
+	
+	JLabel JLBirthday = new JLabel("生日");
+	JTextField JTBirthday = new JTextField();
+	
+	JLabel JLBirthday = new JLabel("生日");
+	JTextField JTBirthday = new JTextField();
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
