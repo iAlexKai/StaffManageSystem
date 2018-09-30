@@ -1,0 +1,11 @@
+package chartTest;
+
+import org.jfree.chart.ChartPanel;
+import org.jfree.data.category.CategoryDataset;
+
+public class BarChart {
+	ChartPanel frame1;
+	public BarChart() {
+		CategoryDataset dataset = getDataset();
+	}
+}

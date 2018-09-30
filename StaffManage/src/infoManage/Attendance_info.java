@@ -149,7 +149,7 @@ public class Attendance_info extends MainPage {
 		}
 		
 		if(e.getSource() == JBRate) {
-			JLRate.setText("0.87");
+			new attendanceRate();
 		}
 		
 		

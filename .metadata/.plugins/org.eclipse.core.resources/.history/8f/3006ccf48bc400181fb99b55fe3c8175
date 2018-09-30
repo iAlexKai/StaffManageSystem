@@ -1,0 +1,28 @@
+package infoManage;
+
+import java.sql.Connection;
+import java.util.Vector;
+
+public class finalSalary {
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+	
+	Vector rowData = null, columnName = null;
+	
+	public finalSalary() {
+		rowData = new Vector();
+		columnName = new Vector();
+		
+		
+		
+	}
+}

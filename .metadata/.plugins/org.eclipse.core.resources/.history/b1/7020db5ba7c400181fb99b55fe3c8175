@@ -1,0 +1,88 @@
+package infoManage;
+
+
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+public class Real_estate_info extends MainPage  {
+
+	JPanel subPanel = null;
+	JLabel JL1 = new JLabel("二手房： "); 
+	JTextField JT1 = new JTextField(3); 
+	JLabel JL2 = new JLabel("商铺外包： "); 
+	JTextField JT2 = new JTextField(3); 
+	JLabel JL3 = new JLabel("装修： "); 
+	JTextField JT3 = new JTextField(3); 
+	JLabel JL4 = new JLabel("房屋租赁： "); 
+	JTextField JT4 = new JTextField(3); 
+	JLabel JL5 = new JLabel("期房炒作： "); 
+	JTextField JT5 = new JTextField(3); 
+	JLabel JL6 = new JLabel("项目施工： "); 
+	JTextField JT6 = new JTextField(3); 
+	JLabel JL7 = new JLabel("物业管理： "); 
+	JTextField JT7 = new JTextField(3); 
+	JLabel JL8 = new JLabel("房贷业务： "); 
+	JTextField JT8 = new JTextField(3); 
+	JLabel JL9 = new JLabel("建材： "); 
+	JTextField JT9 = new JTextField(3); 
+	JLabel JL10 = new JLabel("土地转让： "); 
+	JTextField JT10 = new JTextField(3); 
+
+	JButton JBAdd = new JButton("生成");
+	
+	
+	public Real_estate_info() {
+		subPanel = new JPanel();
+		subPanel.setLayout(new FlowLayout());
+		subPanel.add(JL1);
+		subPanel.add(JT1);
+		subPanel.add(JL2);
+		subPanel.add(JT2);
+		subPanel.add(JL3);
+		subPanel.add(JT3);
+		subPanel.add(JL4);
+		subPanel.add(JT4);
+		subPanel.add(JL5);
+		subPanel.add(JT5);
+		subPanel.add(JL6);
+		subPanel.add(JT6);
+		subPanel.add(JL7);
+		subPanel.add(JT7);
+		subPanel.add(JL8);
+		subPanel.add(JT8);
+		subPanel.add(JL9);
+		subPanel.add(JT9);
+		subPanel.add(JL10);
+		subPanel.add(JT10);
+		
+	}
+	
+	
+	
+	
+}
+
+

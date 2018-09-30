@@ -1,0 +1,40 @@
+package infoManage;
+
+import java.sql.Connection;
+import java.util.Vector;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class attendanceRate {
+
+	String sql = "";
+	// driver engine
+	String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	String user = "root";
+	// pass-word
+	String password = "wsad1234";
+	// connection
+	Connection connection = null;
+	
+	Vector rowData = null, columnName = null;
+	DefaultTableModel tableModel = null;
+	JTable table = null;
+	
+	public attendanceRate() {
+		rowData = new Vector();
+		tableModel = new DefaultTableModel();
+		table = new JTable();
+		columnName = new Vector();
+		columnName.addElement("出勤率");
+		columnName.addElement("sid");
+		columnName.addElement("迟到次数");
+		columnName.addElement("缺勤次数");
+		columnName.addElement("加班次数");
+		
+		sql = "select * from attendance_info";
+	}
+}

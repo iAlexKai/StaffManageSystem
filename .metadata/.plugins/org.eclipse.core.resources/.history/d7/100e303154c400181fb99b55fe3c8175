@@ -1,0 +1,29 @@
+package chartTest;
+
+import org.jfree.chart.ChartPanel;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+public class BarChart {
+	ChartPanel frame1;
+	public BarChart() {
+		CategoryDataset dataset = getDataSet();
+	}
+	
+	private static CategoryDataset getDataSet() {
+		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		dataset.addValue(100, "1", "苹果"); 
+		dataset.addValue(100, "2", "香蕉"); 
+		dataset.addValue(500, "1", "句子"); 
+		dataset.addValue(200, "2", "句子"); 
+		dataset.addValue(300, "1", "香蕉"); 
+		dataset.addValue(400, "2", "栗子"); 
+		dataset.addValue(100, "1", "橙子"); 
+		dataset.addValue(200, "2", "苹果"); 
+		
+		return dataset;
+	}
+
+}
+
+

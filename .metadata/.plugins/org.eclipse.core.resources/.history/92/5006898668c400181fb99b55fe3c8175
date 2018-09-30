@@ -1,0 +1,67 @@
+package chartTest;
+
+import java.awt.GridLayout;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
+import javax.swing.JFrame;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
+
+public class PieChart {
+
+	ChartPanel frame1;
+	public static void main(String args[]) {
+		JFrame frame = new JFrame("员工年龄分布饼图");
+		new PieChart();
+		frame.setLayout(new GridLayout(2,2,10,10));
+		ChartPanel chart = new PieChart().getChartPanel();
+		frame.add(chart);
+		frame.setBounds(50, 50, 800, 600);
+		frame.setVisible(true);
+	}
+	
+	DefaultPieDataset data = getDataSet();
+	JFreeChart chart = ChartFactory.createPieChart3D("员工年龄", data, true, false, false);
+	
+	// 设置百分比
+	PiePlot pieplot = (PiePlot) chart.getPlot(); 
+	DecimalFormat df = new DecimalFormat("0.00%"); // 设置小数
+	NumberFormat nf = NumberFormat.getNumberInstance();
+	StandardPieSectionLabelGenerator spl = new StandardPieSectionLabelGenerator("{0} {2}", nf, df);  
+	pieplot.setLabelGenerator(spl);
+	 pieplot.setNoDataMessage("无数据显示");	      
+	 pieplot.setCircular(false);	      
+	 pieplot.setLabelGap(0.02D);	  	      
+	 pieplot.setIgnoreNullValues(true);//设置不显示空值	      
+	 pieplot.setIgnoreZeroValues(true);//设置不显示负值	     
+	 frame1=new ChartPanel (chart,true);	     
+	 chart.getTitle().setFont(new Font("宋体",Font.BOLD,20));//设置标题字
+	 PiePlot piePlot= (PiePlot) chart.getPlot();//获取图表区域
+	 piePlot.setLabelFont(new Font("宋体",Font.BOLD,10));//解决乱码
+	 chart.getLegend().setItemFont(new Font("黑体",Font.BOLD,10));
+	
+
+	private static DefaultPieDataset getDataSet() {
+	    DefaultPieDataset dataset = new DefaultPieDataset();
+	    dataset.setValue("苹果",100);
+	    dataset.setValue("梨子",200);
+	    dataset.setValue("葡萄",300);
+	    dataset.setValue("香蕉",400);
+	    dataset.setValue("荔枝",500);
+	    return dataset;
+	}
+	public ChartPanel getChartPanel(){
+    	return frame1;
+
+    }
+
+	
+	
+	
+}

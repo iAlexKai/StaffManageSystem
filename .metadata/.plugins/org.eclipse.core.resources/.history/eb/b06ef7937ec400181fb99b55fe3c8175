@@ -1,0 +1,138 @@
+package chartTest;
+
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.io.File;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+
+/**
+ * 测试生成报表图形
+ *    Created by Jason  2016-7-18  上午7:14:59
+ */
+public class PieChart {
+    /**
+     * 提供静态方法：获取报表图形1：饼状图
+     * @param title    标题
+     * @param datas    数据
+     * @param font    字体
+     */
+ //   public static JFreeChart createPort(String title, Font font){
+	JFreeChart chart = null;
+	
+
+	static String sql = "";
+	// driver engine
+	static String jd = "com.mysql.cj.jdbc.Driver";
+	// url
+	static String url = "jdbc:mysql://127.0.0.1:3306/staff_info?useSSL=false";
+	// user-name
+	static String user = "root";
+	// pass-word
+	static String password = "wsad1234";
+	// connection
+	static Connection connection = null;
+	
+	public PieChart() {
+		try {
+                //如果不使用Font,中文将显示不出来               
+                
+                //DefaultPieDataset pds = new DefaultPieDataset();
+                DefaultPieDataset pds = getDataSet();
+                
+               
+                /**
+                 * 生成一个饼图的图表
+                 * 
+                 * 分别是:显示图表的标题、需要提供对应图表的DateSet对象、是否显示图例、是否生成贴士以及是否生成URL链接
+                 */
+                chart = ChartFactory.createPieChart("年龄分布", pds, true, false, true);
+                //设置图片标题的字体
+                Font font = new Font("新宋体", Font.BOLD, 15);
+                chart.getTitle().setFont(font);
+     
+                //得到图块,准备设置标签的字体
+                PiePlot plot = (PiePlot) chart.getPlot();
+     
+                //设置分裂效果,需要指定分裂出去的key
+                plot.setExplodePercent("天使-彦", 0.1);
+     
+                //设置标签字体
+                plot.setLabelFont(font);
+     
+                //设置图例项目字体
+                chart.getLegend().setItemFont(font);
+     
+                /**
+                 * 设置开始角度(弧度计算)
+                 * 
+                 * 度    0°    30°        45°        60°        90°        120°    135°    150°    180°    270°    360°
+                 * 弧度    0    π/6        π/4        π/3        π/2        2π/3    3π/4    5π/6    π        3π/2    2π
+                 */
+                plot.setStartAngle(new Float(3.14f / 2f));
+     
+                
+                //设置plot的前景色透明度
+                plot.setForegroundAlpha(0.7f);
+     
+                //设置plot的背景色透明度
+                plot.setBackgroundAlpha(0.0f);
+     
+                //设置标签生成器(默认{0})
+                //{0}:key {1}:value {2}:百分比 {3}:sum
+                plot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0}({1}票)/{2}"));
+                
+               
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+		
+  }
+
+		
+	private static DefaultPieDataset getDataSet() {
+		DefaultPieDataset dataset = new DefaultPieDataset();
+		//int maleAmount = getMaleAmount(), famaleAmount = getFamaleAmount();
+		dataset.addValue(1, "男", "男"); 
+		dataset.addValue(2, "女", "女"); 
+		/*dataset.addValue(400, "1", "栗子"); 
+		dataset.addValue(100, "1", "橙子"); 
+		dataset.addValue(200, "1", "苹果"); 
+		*/
+		return dataset;
+	}
+	
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Java数据统计图");
+ 		PieChart chart = new PieChart();
+ 		//JFreeChart chart = PieChart.createPort("试试看", font);  
+ 		frame.setLayout(new GridLayout(2,2,10,10));
+ 		frame.add(new ChartPanel(chart.getChart(), true));
+ 		frame.setBounds(50, 50, 800, 600);
+ 		frame.setVisible(true);
+                
+    }
+    
+    public JFreeChart getChart() {
+    	return this.chart;
+    }
+}
