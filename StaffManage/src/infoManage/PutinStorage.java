@@ -100,7 +100,7 @@ public class PutinStorage {
 		Vector currentRow = new Vector();
 		for(int i = 1; i <= rsmd.getColumnCount(); i++){
 			currentRow.addElement(rs.getString(i));
-			System.out.println(rs.getString(i));
+			//System.out.println(rs.getString(i));
 		}
 		return currentRow;
 	}

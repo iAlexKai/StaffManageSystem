@@ -32,7 +32,9 @@ public class Attendance_info extends MainPage {
 	JLabel JLid = new JLabel("工号： ");  // 变量命名中L表示Label
 	JTextField JTid = new JTextField(10);  // 变量命名中T表示Text
 	JButton JBSearch = new JButton("查询工号");  
-	
+	JLabel JLRate = new JLabel("出勤率： ");
+	JLabel JLRateResult = new JLabel();
+	JButton JBRate = new JButton("计算出勤率");
 	
 	JPanel subPanel = null;
 	
@@ -72,12 +74,16 @@ public class Attendance_info extends MainPage {
 		subPanel.add(JLid);
 		subPanel.add(JTid);
 		subPanel.add(JBSearch);
+		subPanel.add(JLRate);
+		subPanel.add(JLRateResult);
+		subPanel.add(JBRate);
 		this.setLayout(new FlowLayout());;
 		this.add(subPanel);
 		JBAdd.addActionListener(this);
 		JBDelete.addActionListener(this);
 		JBModify.addActionListener(this);
 		JBSearch.addActionListener(this);
+		JBRate.addActionListener(this);
 		
 		// 获得表格各行数据
 		Vector rowData = PutinStorage.getRows("staff_info", "attendance_info");
@@ -142,6 +148,9 @@ public class Attendance_info extends MainPage {
 			}
 		}
 		
+		if(e.getSource() == JBRate) {
+			JLRate.setText("0.87");
+		}
 		
 		
 		if(e.getSource() == basic_info) { // 点击后切换到basic_info卡片

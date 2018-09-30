@@ -164,7 +164,7 @@ public class modifySalary extends JFrame implements ActionListener{
 					sql = "delete from salary_info where sid='"+sSid+"' and month = "+sAge+"";
 					statement.executeUpdate(sql);
 					sql = "insert into salary_info values('"+sSid+"', '"+sName+"', '"+sAge+"', '"+sShenfen+"', '"+sPhone+"', "
-							+ "'"+sDepart+"', '"+sJob+"', "+finalSalary+", '"+sEntry+"')";
+							+ "'"+sDepart+"', '"+sJob+"', '"+sEntry+"')";
 					// 执行sql语句，并获得返回值
 					int sqlResult = statement.executeUpdate(sql);
 					if (sqlResult > 0) {

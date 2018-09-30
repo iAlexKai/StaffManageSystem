@@ -3,6 +3,7 @@ package infoManage;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -25,6 +26,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+
+import chartTest.BarChart;
+import chartTest.PieChart;
 import infoManage.PutinStorage;
 
 // Basic_info 即员工基本信息， 包括增删改查，导出两个图片
@@ -38,11 +44,12 @@ public class Basic_info extends MainPage{
 	JButton JBModify = new JButton("修改");
 	JLabel JLid = new JLabel("工号： ");  // 变量命名中L表示Label
 	JLabel JLdepartment = new JLabel("部门： ");
-	JTextField JTid = new JTextField(10);  // 变量命名中T表示Text
-	JTextField JTdepartment = new JTextField(10);
+	JTextField JTid = new JTextField(6);  // 变量命名中T表示Text
+	JTextField JTdepartment = new JTextField(6);
 	JButton JBSearch = new JButton("查询工号");  
 	JButton JBDepart = new JButton("查询部门");
 	JButton JBAllDep = new JButton("全部部门");
+	JButton JBGenerate = new JButton("导出图");
 	
 	JPanel subPanel = null;
 	
@@ -51,6 +58,12 @@ public class Basic_info extends MainPage{
 	JTable table = null;
 	JPanel tablePanel = null;
 	Vector columnName = null;
+	
+	// 年龄表格
+	DefaultTableModel ageTableModel = null;
+	JTable ageTable = null;
+	Vector ageColumnName = null;
+	Vector ageRowData = null;
 	
 	String sql = "";
 	// driver engine
@@ -87,6 +100,7 @@ public class Basic_info extends MainPage{
 		subPanel.add(JTdepartment);
 		subPanel.add(JBDepart);
 		subPanel.add(JBAllDep);
+		subPanel.add(JBGenerate);
 		this.add(subPanel);
 		JBAdd.addActionListener(this);
 		JBDelete.addActionListener(this);
@@ -94,6 +108,7 @@ public class Basic_info extends MainPage{
 		JBSearch.addActionListener(this);
 		JBDepart.addActionListener(this);
 		JBAllDep.addActionListener(this);
+		JBGenerate.addActionListener(this);
 		
 		// 获得表格各行数据
 		Vector rowData = PutinStorage.getRows("staff_info", "basic_info");
@@ -209,9 +224,9 @@ public class Basic_info extends MainPage{
 					Vector rows = new Vector();			
 					ResultSetMetaData rsmd = result_set.getMetaData();
 					
-					while(result_set.next()){
+					do {
 						rows.addElement(getNextRow(result_set,rsmd));	
-					}
+					} while(result_set.next());
 					tableModel.setDataVector(rows, columnName);
 					table.updateUI();
 					
@@ -219,6 +234,50 @@ public class Basic_info extends MainPage{
 			} catch (Exception exception) {
 				exception.printStackTrace();
 			}
+		}
+		
+		if(e.getSource() == JBGenerate) {
+			JFrame frame = new JFrame("员工性别和年龄统计");
+			
+			frame.setLayout(new GridLayout(3,1,10,10));
+			ChartPanel barchart = new BarChart().getChartPanel();
+			PieChart tempchart = new PieChart();
+			JFreeChart piechart = tempchart.getChart();
+			
+			ageRowData = new Vector();
+			ageColumnName = new Vector();
+			// 年龄分布各行数据
+			Vector row1 = new Vector(), row2 = new Vector(), row3= new Vector(), row4 = new Vector();
+			row1.addElement("10~20");
+			row1.addElement(tempchart.getFrom10_20());
+			row2.addElement("20~30");
+			row2.addElement(tempchart.getFrom20_30());
+			row3.addElement("30~40");
+			row3.addElement(tempchart.getFrom30_40());
+			row4.addElement("above 40");
+			row4.addElement(tempchart.getAbove40());
+			ageRowData.addElement(row1);
+			ageRowData.addElement(row2);
+			ageRowData.addElement(row3);
+			ageRowData.addElement(row4);
+			
+			ageColumnName.add("年龄段");
+			ageColumnName.add("人数");
+			
+			// 新建表格
+			ageTableModel = new DefaultTableModel(ageRowData, ageColumnName);	
+			ageTable = new JTable(ageTableModel);
+			
+			
+			
+			frame.add(barchart);
+			frame.add(new ChartPanel(piechart, true));  // 可以将panel添加到panel里面
+			
+			JScrollPane ageScroll = new JScrollPane(ageTable);
+			frame.add(ageScroll);
+			
+			frame.setBounds(50, 50, 800, 600);
+			frame.setVisible(true);
 		}
 		
 		

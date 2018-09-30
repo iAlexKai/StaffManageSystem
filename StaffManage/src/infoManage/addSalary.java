@@ -163,7 +163,7 @@ public class addSalary extends JFrame implements ActionListener{
 					JOptionPane.showMessageDialog(null, "此工号对应的员工此月工资信息已存在，请重新输入！");
 				else {
 					sql = "insert into salary_info "
-					+ "values("+sSid+", '"+sName+"', '"+sAge+"', '"+sShenfen+"', '"+sPhone+"', '"+sDepart+"', '"+sJob+"', "+finalSalary+", "+sEntry+")";
+					+ "values("+sSid+", '"+sName+"', '"+sAge+"', '"+sShenfen+"', '"+sPhone+"', '"+sDepart+"', '"+sJob+"',  "+sEntry+")";
 					// 执行sql语句，并获得返回值
 					int sqlResult = statement.executeUpdate(sql);
 					if (sqlResult > 0) {

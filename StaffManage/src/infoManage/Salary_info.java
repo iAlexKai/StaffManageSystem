@@ -252,9 +252,9 @@ public class Salary_info extends MainPage {
 					Vector rows = new Vector();			
 					ResultSetMetaData rsmd = result_set.getMetaData();
 					
-					while(result_set.next()){
+					do {
 						rows.addElement(getNextRow(result_set,rsmd));	
-					}
+					} while(result_set.next());
 					tableModel.setDataVector(rows, columnName);
 					table.updateUI();
 					
@@ -262,6 +262,10 @@ public class Salary_info extends MainPage {
 			} catch (Exception exception) {
 				exception.printStackTrace();
 			}
+		}
+		
+		if (e.getSource() == JBGenerate) {
+			new finalSalary();
 		}
 		
 	}
