@@ -253,9 +253,9 @@ public class Real_estate_info extends MainPage  {
 			msg[18] = Double.parseDouble(JT29.getText());
 			msg[19] = Double.parseDouble(JT30.getText());
 			
-//			for(int i = 0; i < 20; i++) {
-//				System.out.println(msg[i] + "\n");
-//			}
+			for(int i = 0; i < 20; i++) {
+				System.out.println(msg[i] + "\n");
+			}
 			JFrame turnOver = new JFrame("近五年总营业额比较");
 			turnOver.add(new TimeSeriesChart(msg).getChartPanel());
 			turnOver.setBounds(300, 200, 800, 400);

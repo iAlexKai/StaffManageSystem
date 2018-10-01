@@ -33,9 +33,9 @@ public class TimeSeriesChart {
 		dataset.setValue(msg[4], "二手房", "2017");
 		dataset.setValue(msg[5], "商铺外包", "2013");
 		dataset.setValue(msg[6], "商铺外包", "2014");
-		dataset.setValue(msg[7], "商铺外包", "2015");
-		dataset.setValue(msg[8], "商铺外包", "2016");
-		dataset.setValue(msg[9], "商铺外包", "2017");
+		dataset.setValue(msg[7], "商铺外包", "2016");
+		dataset.setValue(msg[8], "商铺外包", "2017");
+		dataset.setValue(msg[9], "商铺外包", "2015");
 		dataset.setValue(msg[10], "装修", "2013");
 		dataset.setValue(msg[11], "装修", "2014");
 		dataset.setValue(msg[12], "装修", "2015");
@@ -43,9 +43,9 @@ public class TimeSeriesChart {
 		dataset.setValue(msg[14], "装修", "2017");
 		dataset.setValue(msg[15], "房屋租赁", "2013");
 		dataset.setValue(msg[16], "房屋租赁", "2014");
-		dataset.setValue(msg[17], "房屋租赁", "2015");
-		dataset.setValue(msg[18], "房屋租赁", "2016");
-		dataset.setValue(msg[19], "房屋租赁", "2017");
+		dataset.setValue(msg[17], "房屋租赁", "2016");
+		dataset.setValue(msg[18], "房屋租赁", "2017");
+		dataset.setValue(msg[19], "房屋租赁", "2015");
 		JFreeChart jfreechart = ChartFactory.createLineChart("近五年行业总营业额比较", "日期", "营业额", dataset, PlotOrientation.VERTICAL, //图表放置模式水平/垂直 
 				true, //显示lable
 				false, //显示提示

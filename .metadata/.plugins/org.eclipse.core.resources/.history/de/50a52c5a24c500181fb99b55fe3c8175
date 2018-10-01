@@ -165,7 +165,7 @@ public class Real_estate_info extends MainPage  {
 		subPanel3.add(JT18);
 		subPanel3.add(JL19);
 		subPanel3.add(JT19);
-		subPanel3.add(JL20);
+		subPanel3.add(JT20);
 		subPanel3.add(JT20);
 		
 		
@@ -186,26 +186,22 @@ public class Real_estate_info extends MainPage  {
 		
 		
 		subPanel5 = new JPanel();
-		subPanel5.setLayout(new FlowLayout());
-		subPanel5.add(JLzulin);
-		subPanel5.add(JL26);
-		subPanel5.add(JT26);
-		subPanel5.add(JL27);
-		subPanel5.add(JT27);
-		subPanel5.add(JL28);
-		subPanel5.add(JT28);
-		subPanel5.add(JL29);
-		subPanel5.add(JT29);
-		subPanel5.add(JL30);
-		subPanel5.add(JT30);
-		subPanel5.add(JBTurnover);
+		subPanel3.add(JL26);
+		subPanel3.add(JT26);
+		subPanel3.add(JL27);
+		subPanel3.add(JT27);
+		subPanel3.add(JL28);
+		subPanel3.add(JT28);
+		subPanel3.add(JL29);
+		subPanel3.add(JT29);
+		subPanel3.add(JL30);
+		subPanel3.add(JT30);
+		subPanel3.add(JBTurnover);
 		
 		
 		this.add(subPanel);
 		this.add(subPanel2);
 		this.add(subPanel3);
-		this.add(subPanel4);
-		this.add(subPanel5);
 		this.setBounds(100,200,1300,600);
 		
 		
@@ -252,10 +248,6 @@ public class Real_estate_info extends MainPage  {
 			msg[17] = Double.parseDouble(JT28.getText());
 			msg[18] = Double.parseDouble(JT29.getText());
 			msg[19] = Double.parseDouble(JT30.getText());
-			
-//			for(int i = 0; i < 20; i++) {
-//				System.out.println(msg[i] + "\n");
-//			}
 			JFrame turnOver = new JFrame("近五年总营业额比较");
 			turnOver.add(new TimeSeriesChart(msg).getChartPanel());
 			turnOver.setBounds(300, 200, 800, 400);
